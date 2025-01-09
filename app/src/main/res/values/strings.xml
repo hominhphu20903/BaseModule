@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BaseModule</string>
+    <string name="txt_permission">Permission</string>
+    <string name="txt_request">Request Permission</string>
+    <string name="txt_permission_granted">Permission Granted</string>
+    <string name="txt_permission_denied">Permission Denied</string>
+    <string name="txt_dialog">Dialog</string>
+    <string name="txt_show_dialog">Show Dialog</string>
+    <string name="txt_show_bottom_sheet_dialog">Show Bottom Sheet Dialog</string>
+    <string name="txt_dialog_header">Dialog Header</string>
+    <string name="txt_dialog_body">Morbi efficitur mauris et libero tempor gravida.</string>
+    <string name="txt_action">Action</string>
+    <string name="txt_progress_action">Progress Action</string>
+    <string name="txt_show_dialog_fragment">Show Dialog Fragment</string>
+    <string name="txt_wifi_settings">Wifi Settings</string>
+    <string name="txt_no_internet">No Internet!</string>
+    <string name="txt_network_change">Network Change</string>
+    <string name="txt_check_your_internet">Check your connection or try again</string>
+    <string name="txt_call_api">Call Api</string>
+</resources>
