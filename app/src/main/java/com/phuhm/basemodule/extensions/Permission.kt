@@ -10,16 +10,15 @@ import androidx.core.content.ContextCompat
 import com.phuhm.basemodule.shared.Constants
 
 fun Context.isPostNotificationPermissionGranted() : Boolean {
-    return if(Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-        true
-    } else {
+    return if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+    } else {
+        true
     }
 }
 
 fun AppCompatActivity.requestPostNotificationPermission() {
-    if(Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-        return
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),  Constants.POST_NOTIFICATION_REQUEST_CODE)
     }
-    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),  Constants.POST_NOTIFICATION_REQUEST_CODE)
 }

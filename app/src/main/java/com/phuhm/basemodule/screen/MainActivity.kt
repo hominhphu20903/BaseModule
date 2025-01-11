@@ -46,6 +46,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.btnRoom.setOnSingleClickListener {
             startRoomActivity()
         }
+
+        binding.btnService.setOnSingleClickListener {
+            startServiceActivity()
+        }
     }
 
     private fun startPermissionActivity() {
@@ -70,6 +74,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun startRoomActivity() {
         val intent = Intent(this, RoomActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startServiceActivity() {
+        val intent = Intent(this, ServiceActivity::class.java)
         startActivity(intent)
     }
 }
