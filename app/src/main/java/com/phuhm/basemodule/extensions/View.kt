@@ -3,6 +3,7 @@ package com.phuhm.basemodule.extensions
 import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowCompat
 
 fun View.visible() {
     visibility = View.VISIBLE
@@ -58,7 +59,6 @@ class OnSingleClickListener(private val action: () -> Unit) : View.OnClickListen
     }
 
     override fun onClick(view: View) {
-
         if (SystemClock.elapsedRealtime() - lastClickTime < 500) {
             return
         }

@@ -8,8 +8,10 @@ import com.phuhm.basemodule.databinding.ActivityDialogBinding
 import com.phuhm.basemodule.dialog.ConfirmBottomSheetDialog
 import com.phuhm.basemodule.dialog.ConfirmDialog
 import com.phuhm.basemodule.dialog.ConfirmDialogFragment
-import com.phuhm.basemodule.extensions.changeNavigationBarColor
-import com.phuhm.basemodule.extensions.changeStatusBarColor
+import com.phuhm.basemodule.dialog.FailedDialog
+import com.phuhm.basemodule.dialog.SuccessDialog
+import com.phuhm.basemodule.extensions.setNavigationBarColor
+import com.phuhm.basemodule.extensions.setStatusBarColor
 import com.phuhm.basemodule.extensions.setOnSingleClickListener
 
 class DialogActivity : BaseActivity<ActivityDialogBinding>() {
@@ -25,8 +27,8 @@ class DialogActivity : BaseActivity<ActivityDialogBinding>() {
 
     private fun initViews() {
         initToolbar()
-        changeStatusBarColor(R.color.primaryColor)
-        changeNavigationBarColor(R.color.primaryColor)
+        setStatusBarColor(R.color.primaryColor)
+        setNavigationBarColor(R.color.primaryColor)
     }
 
     private fun initToolbar() {
@@ -49,6 +51,14 @@ class DialogActivity : BaseActivity<ActivityDialogBinding>() {
         binding.btnShowBottomSheetDialog.setOnSingleClickListener {
             showConfirmBottomSheetDialog()
         }
+
+        binding.btnShowDialogAnimSuccess.setOnSingleClickListener {
+            showSuccessDialog()
+        }
+
+        binding.btnShowDialogAnimFailed.setOnSingleClickListener {
+            showFailedDialog()
+        }
     }
 
     private fun showConfirmDialog() {
@@ -64,5 +74,15 @@ class DialogActivity : BaseActivity<ActivityDialogBinding>() {
     private fun showConfirmBottomSheetDialog() {
         val dialog = ConfirmBottomSheetDialog()
         dialog.show(supportFragmentManager, ConfirmBottomSheetDialog::class.java.simpleName)
+    }
+
+    private fun showSuccessDialog() {
+        val dialog = SuccessDialog(this)
+        dialog.show()
+    }
+
+    private fun showFailedDialog() {
+        val dialog = FailedDialog(this)
+        dialog.show()
     }
 }

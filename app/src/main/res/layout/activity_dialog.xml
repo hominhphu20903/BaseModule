@@ -67,6 +67,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frToolbar" />
+
+        <TextView
+            android:id="@+id/btnShowDialogAnimSuccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/bg_btn_primary"
+            android:fontFamily="@font/font_bold"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/txt_show_dialog_anim_success"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/btnShowDialogAnimFailed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/bg_btn_primary"
+            android:fontFamily="@font/font_bold"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/txt_show_dialog_anim_failed"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/_14ssp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

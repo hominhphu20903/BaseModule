@@ -23,6 +23,10 @@ class CallApiViewModel(private val todoRepositoryImpl: TodoRepositoryImpl) : Vie
 
     private var job: Job? = null
 
+    init {
+        getTodos()
+    }
+
     fun getTodos() {
         job?.cancel()
         job = viewModelScope.launch {

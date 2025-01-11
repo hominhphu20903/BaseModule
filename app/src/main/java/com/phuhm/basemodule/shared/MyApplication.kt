@@ -1,7 +1,8 @@
 package com.phuhm.basemodule.shared
 
-
 import android.app.Application
+import com.phuhm.basemodule.data.database.NoteDatabase
+import com.phuhm.basemodule.data.repository.NoteRepositoryImpl
 import com.phuhm.basemodule.data.repository.TodoRepositoryImpl
 
 class MyApplication : Application() {
@@ -14,11 +15,13 @@ class MyApplication : Application() {
     }
 
     lateinit var todoRepositoryImpl: TodoRepositoryImpl
+    lateinit var noteRepositoryImpl: NoteRepositoryImpl
 
     override fun onCreate() {
         super.onCreate()
         instance = this
 
         todoRepositoryImpl = TodoRepositoryImpl()
+        noteRepositoryImpl = NoteRepositoryImpl(NoteDatabase.getDatabase(this).noteDao())
     }
 }

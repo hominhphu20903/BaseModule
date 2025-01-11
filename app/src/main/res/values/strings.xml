@@ -6,6 +6,8 @@
     <string name="txt_permission_denied">Permission Denied</string>
     <string name="txt_dialog">Dialog</string>
     <string name="txt_show_dialog">Show Dialog</string>
+    <string name="txt_show_dialog_anim_success">Show Dialog Anim Success</string>
+    <string name="txt_show_dialog_anim_failed">Show Dialog Anim Failed</string>
     <string name="txt_show_bottom_sheet_dialog">Show Bottom Sheet Dialog</string>
     <string name="txt_dialog_header">Dialog Header</string>
     <string name="txt_dialog_body">Morbi efficitur mauris et libero tempor gravida.</string>
@@ -17,4 +19,14 @@
     <string name="txt_network_change">Network Change</string>
     <string name="txt_check_your_internet">Check your connection or try again</string>
     <string name="txt_call_api">Call Api</string>
+    <string name="txt_room">Room</string>
+    <string name="txt_enter_title">Enter title...</string>
+    <string name="txt_add">Add</string>
+    <string name="txt_add_note">Add Note</string>
+    <string name="txt_edit_note">Edit Note</string>
+    <string name="txt_save">Save</string>
+    <string name="txt_enter_notes">Enter notes...</string>
+    <string name="txt_dot">·</string>
+    <string name="txt_undo">Undo</string>
+    <string name="txt_note_deleted">Note deleted</string>
 </resources>

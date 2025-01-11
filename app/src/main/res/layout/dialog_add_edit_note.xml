@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_12sdp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_16sdp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/txt_dialog_header"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/_14ssp" />
+
+
+            <EditText
+                android:id="@+id/edtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/bg_edt_primary"
+                android:ems="10"
+                android:fontFamily="@font/font_regular"
+                android:hint="@string/txt_enter_title"
+                android:inputType="text"
+                android:padding="@dimen/_10sdp"
+                android:textColorHint="#80202326"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="Autofill" />
+
+
+            <EditText
+                android:id="@+id/edtNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/bg_edt_primary"
+                android:ems="10"
+                android:fontFamily="@font/font_regular"
+                android:gravity="top"
+                android:hint="@string/txt_enter_notes"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:maxLines="7"
+                android:minLines="4"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/primaryColor"
+                android:textColorHint="#80202326"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:id="@+id/btnProgress"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/bg_btn_primary"
+                android:fontFamily="@font/font_medium"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/txt_action"
+                android:textColor="@color/onPrimaryColor"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frToolbar" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

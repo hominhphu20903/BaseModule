@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import com.phuhm.basemodule.R
 import com.phuhm.basemodule.base.BaseActivity
 import com.phuhm.basemodule.databinding.ActivityPermissionBinding
-import com.phuhm.basemodule.extensions.changeNavigationBarColor
-import com.phuhm.basemodule.extensions.changeStatusBarColor
+import com.phuhm.basemodule.extensions.setNavigationBarColor
+import com.phuhm.basemodule.extensions.setStatusBarColor
 import com.phuhm.basemodule.extensions.isPostNotificationPermissionGranted
 import com.phuhm.basemodule.extensions.requestPostNotificationPermission
 import com.phuhm.basemodule.extensions.setOnSingleClickListener
@@ -27,8 +27,8 @@ class PermissionActivity : BaseActivity<ActivityPermissionBinding>() {
 
     private fun initViews() {
         initToolbar()
-        changeStatusBarColor(R.color.primaryColor)
-        changeNavigationBarColor(R.color.primaryColor)
+        setStatusBarColor(R.color.primaryColor)
+        setNavigationBarColor(R.color.primaryColor)
     }
 
     private fun initToolbar() {
