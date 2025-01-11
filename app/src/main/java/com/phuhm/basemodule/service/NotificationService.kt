@@ -6,10 +6,14 @@ import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.os.Build
 import android.os.IBinder
 import androidx.annotation.RequiresApi
+import androidx.core.app.ServiceCompat
 import com.phuhm.basemodule.R
+import com.phuhm.basemodule.extensions.isLocationPermissionGranted
+import com.phuhm.basemodule.extensions.isPostNotificationPermissionGranted
 
 class NotificationService : Service() {
     companion object {
@@ -26,9 +30,18 @@ class NotificationService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         createNotificationChannel()
 
-       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val notification =  createNotification(getString(R.string.txt_foreground_service_running))
-            startForeground(NOTIFICATION_ID, notification)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if(isLocationPermissionGranted()) {
+                val notification = createNotification(getString(R.string.txt_foreground_service_running))
+                ServiceCompat.startForeground(
+                    this, NOTIFICATION_ID, notification,
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION
+                    } else {
+                        0
+                    }
+                )
+            }
         }
         return START_STICKY
     }

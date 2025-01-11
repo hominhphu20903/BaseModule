@@ -22,3 +22,16 @@ fun AppCompatActivity.requestPostNotificationPermission() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),  Constants.POST_NOTIFICATION_REQUEST_CODE)
     }
 }
+
+fun Context.isLocationPermissionGranted() : Boolean {
+    val hasFineLocation = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+    val hasCoarseLocation = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+
+    return hasFineLocation || hasCoarseLocation
+}
+
+fun AppCompatActivity.requestLocationPermission() {
+    val permissionsToRequest = listOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+    ActivityCompat.requestPermissions(this, permissionsToRequest.toTypedArray(), Constants.LOCATION_PERMISSION_REQUEST_CODE)
+}
+

@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import com.phuhm.basemodule.R
 import com.phuhm.basemodule.base.BaseActivity
 import com.phuhm.basemodule.databinding.ActivityServiceBinding
+import com.phuhm.basemodule.extensions.isLocationPermissionGranted
 import com.phuhm.basemodule.extensions.isPostNotificationPermissionGranted
+import com.phuhm.basemodule.extensions.requestLocationPermission
 import com.phuhm.basemodule.extensions.requestPostNotificationPermission
 import com.phuhm.basemodule.extensions.setNavigationBarColor
 import com.phuhm.basemodule.extensions.setOnSingleClickListener
@@ -23,6 +25,7 @@ class ServiceActivity : BaseActivity<ActivityServiceBinding>() {
         super.onCreate(savedInstanceState)
         initViews()
         handleEvents()
+        checkPermission()
     }
 
     private fun initViews() {
@@ -41,7 +44,7 @@ class ServiceActivity : BaseActivity<ActivityServiceBinding>() {
         }
 
         binding.btnStartService.setOnSingleClickListener {
-            checkPermission()
+            startService()
         }
 
         binding.btnStopService.setOnSingleClickListener {
@@ -50,8 +53,8 @@ class ServiceActivity : BaseActivity<ActivityServiceBinding>() {
     }
 
     private fun checkPermission() {
-        if(isPostNotificationPermissionGranted()) {
-            startService()
+        if(isPostNotificationPermissionGranted() && !isLocationPermissionGranted()) {
+            requestLocationPermission()
         } else {
             requestPostNotificationPermission()
         }
@@ -75,6 +78,16 @@ class ServiceActivity : BaseActivity<ActivityServiceBinding>() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if(requestCode == Constants.POST_NOTIFICATION_REQUEST_CODE) {
             if(isPostNotificationPermissionGranted()) {
+               if(isLocationPermissionGranted()) {
+                   startService()
+               } else {
+                   requestLocationPermission()
+               }
+            }
+        }
+
+        if(requestCode == Constants.LOCATION_PERMISSION_REQUEST_CODE) {
+            if(isLocationPermissionGranted()) {
                 startService()
             }
         }
