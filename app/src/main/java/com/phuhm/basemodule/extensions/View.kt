@@ -3,7 +3,6 @@ package com.phuhm.basemodule.extensions
 import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.WindowCompat
 
 fun View.visible() {
     visibility = View.VISIBLE

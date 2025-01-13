@@ -50,6 +50,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.btnService.setOnSingleClickListener {
             startServiceActivity()
         }
+
+        binding.btnConfigScreen.setOnSingleClickListener {
+            startConfigScreenActivity()
+        }
     }
 
     private fun startPermissionActivity() {
@@ -79,6 +83,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun startServiceActivity() {
         val intent = Intent(this, ServiceActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startConfigScreenActivity() {
+        val intent = Intent(this, ConfigScreenActivity::class.java)
         startActivity(intent)
     }
 }

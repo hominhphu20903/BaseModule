@@ -13,7 +13,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ServiceCompat
 import com.phuhm.basemodule.R
 import com.phuhm.basemodule.extensions.isLocationPermissionGranted
-import com.phuhm.basemodule.extensions.isPostNotificationPermissionGranted
 
 class NotificationService : Service() {
     companion object {

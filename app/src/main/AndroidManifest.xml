@@ -7,8 +7,8 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".shared.MyApplication"
@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/BaseModule.Theme"
         tools:targetApi="31">
+        <activity
+            android:name=".screen.ConfigScreenActivity"
+            android:exported="false" />
         <activity
             android:name=".screen.ServiceActivity"
             android:exported="false" />
