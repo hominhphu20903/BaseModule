@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor"
+    tools:context=".screen.JsonActivity">
+
+    <FrameLayout
+        android:id="@+id/frToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/layout_toolbar" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frToolbar"
+        tools:ignore="UselessLeaf">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_medium"
+            tools:text="@string/txt_is_the_earth_round"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/btnOptionIndex0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/bg_item_question"
+            android:fontFamily="@font/font_medium"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_10sdp"
+            tools:text="@string/txt_yes"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/btnOptionIndex1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/bg_item_question"
+            android:fontFamily="@font/font_medium"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_10sdp"
+            tools:text="@string/txt_no"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/tvCore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/font_medium"
+            tools:text="@string/txt_0_10"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/_14ssp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

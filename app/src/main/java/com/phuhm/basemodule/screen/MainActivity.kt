@@ -54,6 +54,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.btnConfigScreen.setOnSingleClickListener {
             startConfigScreenActivity()
         }
+
+        binding.btnJson.setOnSingleClickListener {
+            startJsonActivity()
+        }
     }
 
     private fun startPermissionActivity() {
@@ -78,6 +82,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun startRoomActivity() {
         val intent = Intent(this, RoomActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startJsonActivity() {
+        val intent = Intent(this, JsonActivity::class.java)
         startActivity(intent)
     }
 

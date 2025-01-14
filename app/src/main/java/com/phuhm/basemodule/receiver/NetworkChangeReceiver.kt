@@ -21,9 +21,9 @@ class NetworkChangeReceiver : BroadcastReceiver {
             val action = intent.action
             if (action == ConnectivityManager.CONNECTIVITY_ACTION) {
                 if (NetworkUtils.isNetworkConnected(context)) {
-                    networkStateListener?.onConnected()
+                    networkStateListener?.onNetworkConnected()
                 } else {
-                    networkStateListener?.onDisconnected()
+                    networkStateListener?.onNetworkDisconnected()
                 }
             }
         } catch (e: Exception) {
@@ -32,7 +32,7 @@ class NetworkChangeReceiver : BroadcastReceiver {
     }
 
     interface NetworkStateListener {
-        fun onConnected()
-        fun onDisconnected()
+        fun onNetworkConnected()
+        fun onNetworkDisconnected()
     }
 }

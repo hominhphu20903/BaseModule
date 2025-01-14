@@ -68,11 +68,11 @@ class NetworkChangeActivity : BaseActivity<ActivityNetworkChangeBinding>(), Netw
         }
     }
 
-    override fun onConnected() {
+    override fun onNetworkConnected() {
         noInternetDialog?.dismiss()
     }
 
-    override fun onDisconnected() {
+    override fun onNetworkDisconnected() {
         noInternetDialog?.show()
     }
 }

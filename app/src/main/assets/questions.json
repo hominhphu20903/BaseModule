@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Is the Earth round?",
+    "options": ["Yes", "No"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Is water dry?",
+    "options": ["Yes", "No"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Is the sun a star?",
+    "options": ["Yes", "No"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Can humans breathe underwater without equipment?",
+    "options": ["Yes", "No"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Is 2+2 equals to 4?",
+    "options": ["Yes", "No"],
+    "correctAnswer": 0
+  }
+]
