@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import com.phuhm.basemodule.R
 import com.phuhm.basemodule.base.BaseActivity
 import com.phuhm.basemodule.databinding.ActivityConfigScreenBinding
-import com.phuhm.basemodule.extensions.setNavigationBarTransparent
-import com.phuhm.basemodule.extensions.setStatusBarTransparent
+import com.phuhm.basemodule.extensions.setFullScreen
 
 class ConfigScreenActivity : BaseActivity<ActivityConfigScreenBinding>() {
     override fun inflateBinding(inflater: LayoutInflater): ActivityConfigScreenBinding {
@@ -20,8 +19,7 @@ class ConfigScreenActivity : BaseActivity<ActivityConfigScreenBinding>() {
     }
 
     private fun initViews() {
-        setStatusBarTransparent()
-        setNavigationBarTransparent()
+        setFullScreen()
         initVideoViewSplash()
     }
 
