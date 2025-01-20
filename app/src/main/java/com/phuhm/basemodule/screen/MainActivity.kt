@@ -58,6 +58,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.btnJson.setOnSingleClickListener {
             startJsonActivity()
         }
+
+        binding.btnPopupOptions.setOnSingleClickListener {
+            startPopupOptionsActivity()
+        }
     }
 
     private fun startPermissionActivity() {
@@ -77,6 +81,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun startCallApiActivity() {
         val intent = Intent(this, CallApiActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startPopupOptionsActivity() {
+        val intent = Intent(this, PopupOptionsActivity::class.java)
         startActivity(intent)
     }
 

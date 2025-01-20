@@ -83,4 +83,9 @@
     <string name="txt_0_10">0/10</string>
     <string name="txt_max_core">/10</string>
     <string name="txt_you_are_done">You are done!</string>
+    <string name="txt_popup_options">Popup Options</string>
+    <string name="txt_show_popup_options">Show Popup Options</string>
+    <string name="txt_option_1">Option 1</string>
+    <string name="txt_option_2">Option 2</string>
+    <string name="txt_option_3">Option 3</string>
 </resources>
