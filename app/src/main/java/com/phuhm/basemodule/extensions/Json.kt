@@ -46,7 +46,7 @@ fun <T> Context.loadJsonFromAssetsToList(fileName: String, clazz: Class<T>): Lis
     }
 }
 
-fun <T> Context.oadJsonFromAssetsToObject(context: Context, fileName: String, clazz: Class<T>): T? {
+fun <T> Context.loadJsonFromAssetsToObject(context: Context, fileName: String, clazz: Class<T>): T? {
     return try {
         val inputStream = context.assets.open(fileName)
         val size = inputStream.available()
