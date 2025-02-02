@@ -27,12 +27,40 @@ fun View.setTopMarginForWindowInsets() {
     }
 }
 
+fun View.setTopPaddingForWindowInsets() {
+    setOnApplyWindowInsetsListener { view, insets ->
+        val statusBarSize = insets.systemWindowInsetTop
+        view.setPadding(
+            view.paddingLeft,
+            statusBarSize,
+            view.paddingRight,
+            view.paddingBottom
+        )
+
+        insets
+    }
+}
+
 fun View.setBottomMarginForWindowInsets() {
     setOnApplyWindowInsetsListener { view, insets ->
         val navigationBarSize = insets.systemWindowInsetBottom
         val layoutParams = view.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.bottomMargin = navigationBarSize
         view.layoutParams = layoutParams
+
+        insets
+    }
+}
+
+fun View.setBottomPaddingForWindowInsets() {
+    setOnApplyWindowInsetsListener { view, insets ->
+        val statusBarSize = insets.systemWindowInsetBottom
+        view.setPadding(
+            view.paddingLeft,
+            statusBarSize,
+            view.paddingRight,
+            view.paddingBottom
+        )
 
         insets
     }
@@ -46,6 +74,21 @@ fun View.setMarginsForWindowInsets() {
         layoutParams.topMargin = statusBarSize
         layoutParams.bottomMargin = navigationBarSize
         view.layoutParams = layoutParams
+
+        insets
+    }
+}
+
+fun View.setPaddingsForWindowInsets() {
+    setOnApplyWindowInsetsListener { view, insets ->
+        val statusBarSize = insets.systemWindowInsetTop
+        val navigationBarSize = insets.systemWindowInsetBottom
+        view.setPadding(
+            view.paddingLeft,
+            statusBarSize,
+            view.paddingRight,
+            navigationBarSize
+        )
 
         insets
     }
