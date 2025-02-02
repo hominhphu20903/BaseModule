@@ -21,8 +21,8 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun inflateBinding(inflater: LayoutInflater): VB
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onDestroy() {
+        super.onDestroy()
         _binding = null
     }
 }
