@@ -7,6 +7,8 @@ import java.util.Date
 import java.util.Locale
 
 object DateUtils {
+    fun getCurrentDate(): Date = Calendar.getInstance().time
+
     fun formatDate(date: Date, pattern: String, locale: Locale = Locale.getDefault()): String {
         return SimpleDateFormat(pattern, locale).format(date)
     }
@@ -19,8 +21,6 @@ object DateUtils {
             null
         }
     }
-
-    fun getCurrentDate(): Date = Calendar.getInstance().time
 
     fun getStartOfDay(date: Date): Date {
         return Calendar.getInstance().apply {
@@ -47,7 +47,6 @@ object DateUtils {
         val endOfDay = getEndOfDay(endDate)
         return !date.before(startOfDay) && !date.after(endOfDay)
     }
-
 
     fun isSameDate(date1: Date, date2: Date): Boolean {
         val startOfDate1 = getStartOfDay(date1)

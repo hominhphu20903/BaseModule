@@ -16,6 +16,10 @@ fun View.invisible() {
     visibility = View.INVISIBLE
 }
 
+fun View.setBackgroundTint(color: Int) {
+    this.setBackgroundTintList(context.getColorStateList(color))
+}
+
 fun View.setTopMarginForWindowInsets() {
     setOnApplyWindowInsetsListener { view, insets ->
         val statusBarSize = insets.systemWindowInsetTop

@@ -347,6 +347,7 @@
                     tools:ignore="UseCompoundDrawables,UselessParent">
 
                     <ImageView
+                        android:id="@+id/imv"
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:importantForAccessibility="no"
