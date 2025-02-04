@@ -4,16 +4,16 @@ import android.annotation.SuppressLint
 import android.content.Context
 import com.phuhm.basemodule.shared.Constants
 
-class SharePrefsDatabase(private val context: Context) {
+class SharedPrefs(private val context: Context) {
     private val sharePrefs = context.getSharedPreferences(Constants.DB_NAME, Context.MODE_PRIVATE)
     private val editor = sharePrefs.edit()
 
     companion object {
         @SuppressLint("StaticFieldLeak")
-        private var INSTANCE: SharePrefsDatabase? = null
-        fun getInstance(context: Context): SharePrefsDatabase {
+        private var INSTANCE: SharedPrefs? = null
+        fun getInstance(context: Context): SharedPrefs {
             if (INSTANCE == null) {
-                INSTANCE = SharePrefsDatabase(context)
+                INSTANCE = SharedPrefs(context)
             }
             return INSTANCE!!
         }

@@ -7,7 +7,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import com.phuhm.basemodule.R
 import com.phuhm.basemodule.base.BaseActivity
-import com.phuhm.basemodule.data.database.SharePrefsDatabase
+import com.phuhm.basemodule.data.database.SharedPrefs
 import com.phuhm.basemodule.databinding.ActivitySplashBinding
 import com.phuhm.basemodule.extensions.setNavigationBarColor
 import com.phuhm.basemodule.extensions.setStatusBarColor
@@ -27,7 +27,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         super.onCreate(savedInstanceState)
         initViews()
 
-        if(SharePrefsDatabase.getInstance(this).isOpenedSplash) {
+        if(SharedPrefs.getInstance(this).isOpenedSplash) {
             startMainActivity()
         } else {
             Handler(mainLooper).postDelayed({
@@ -37,7 +37,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     }
 
     private fun startMainActivity() {
-        SharePrefsDatabase.getInstance(this).isOpenedSplash = true
+        SharedPrefs.getInstance(this).isOpenedSplash = true
 
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
