@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import com.phuhm.basemodule.shared.Constants
 
-class SharedPrefs(private val context: Context) {
+class SharedPrefs(context: Context) {
     private val sharePrefs = context.getSharedPreferences(Constants.DB_NAME, Context.MODE_PRIVATE)
     private val editor = sharePrefs.edit()
 
