@@ -1,5 +1,6 @@
 package com.phuhm.basemodule.data.database
 
+import android.annotation.SuppressLint
 import android.content.Context
 import com.phuhm.basemodule.shared.Constants
 
@@ -16,6 +17,7 @@ class SharedPrefs(context: Context) {
             }
             return INSTANCE!!
         }
+    }
 
     var isOpenedSplash: Boolean
         get() = sharePrefs.getBoolean(Constants.IS_OPENED_SPLASH, false)
