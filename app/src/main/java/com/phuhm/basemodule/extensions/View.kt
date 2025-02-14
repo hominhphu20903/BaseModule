@@ -5,14 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 
 fun View.visible() {
+    if (visibility == View.VISIBLE) return
     visibility = View.VISIBLE
 }
 
 fun View.gone() {
+    if (visibility == View.GONE) return
     visibility = View.GONE
 }
 
 fun View.invisible() {
+    if (visibility == View.INVISIBLE) return
     visibility = View.INVISIBLE
 }
 
@@ -100,7 +103,7 @@ fun View.setPaddingsForWindowInsets() {
 
 class OnSingleClickListener(private val action: () -> Unit) : View.OnClickListener {
 
-    companion object{
+    companion object {
         private var lastClickTime: Long = 0L
     }
 
