@@ -4,12 +4,28 @@ import android.content.Context
 import android.util.TypedValue
 import android.widget.Toast
 
-fun Context.dpToPx(dp: Int): Int {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), resources.displayMetrics).toInt()
+fun Context.dpToPx(dp: Float): Float {
+    return TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        dp,
+        resources.displayMetrics
+    )
 }
 
-fun Context.spToPx(dp: Int): Float {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, dp.toFloat(), resources.displayMetrics)
+fun Context.spToPx(sp: Float): Float {
+    return TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_SP,
+        sp,
+        resources.displayMetrics
+    )
+}
+
+fun Context.pxToDp(px: Float): Float {
+    return px / resources.displayMetrics.density
+}
+
+fun Context.pxToSp(px: Float): Float {
+    return px / resources.displayMetrics.scaledDensity
 }
 
 fun Context.showMessage(message: String) {
