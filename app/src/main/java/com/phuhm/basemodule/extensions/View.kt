@@ -1,8 +1,10 @@
 package com.phuhm.basemodule.extensions
 
+import android.content.Context
 import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 
 fun View.visible() {
     if (visibility == View.VISIBLE) return
@@ -120,4 +122,15 @@ class OnSingleClickListener(private val action: () -> Unit) : View.OnClickListen
 
 fun View.setOnSingleClickListener(action: () -> Unit) {
     setOnClickListener(OnSingleClickListener(action))
+}
+
+fun View.hideKeyboard() {
+    val inputMethodManager = this.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(this.windowToken, 0)
+}
+
+fun View.showKeyboard() {
+    this.requestFocus()
+    val inputMethodManager = this.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
