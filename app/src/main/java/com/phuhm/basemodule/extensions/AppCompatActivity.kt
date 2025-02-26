@@ -2,6 +2,7 @@ package com.phuhm.basemodule.extensions
 
 import android.graphics.Color
 import android.os.Build
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -67,12 +68,18 @@ fun AppCompatActivity.setHideNavigationBar() {
         this.window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
     }
 
-    val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
-    windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 
-    ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { view, windowInsets ->
-        windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
-        ViewCompat.onApplyWindowInsets(view, windowInsets)
+        ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { view, windowInsets ->
+            windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
+            ViewCompat.onApplyWindowInsets(view, windowInsets)
+        }
+    } else {
+        @Suppress("DEPRECATION")
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
     }
 }
 
