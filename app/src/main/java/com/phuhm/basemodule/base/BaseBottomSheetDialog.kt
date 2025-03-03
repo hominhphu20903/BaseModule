@@ -23,8 +23,8 @@ abstract class BaseBottomSheetDialog<VB : ViewBinding> : BottomSheetDialogFragme
 
     abstract fun inflateBinding(inflater: LayoutInflater, container: ViewGroup?): VB
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 

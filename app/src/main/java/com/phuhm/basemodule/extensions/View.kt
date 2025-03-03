@@ -120,35 +120,3 @@ fun View.setPaddingsForWindowInsets() {
         insets
     }
 }
-
-class OnSingleClickListener(private val action: () -> Unit) : View.OnClickListener {
-
-    companion object {
-        private var lastClickTime: Long = 0L
-    }
-
-    override fun onClick(view: View) {
-        if (SystemClock.elapsedRealtime() - lastClickTime < 500) {
-            return
-        }
-
-        lastClickTime = SystemClock.elapsedRealtime()
-
-        action()
-    }
-}
-
-fun View.setOnSingleClickListener(action: () -> Unit) {
-    setOnClickListener(OnSingleClickListener(action))
-}
-
-fun View.hideKeyboard() {
-    val inputMethodManager = this.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    inputMethodManager.hideSoftInputFromWindow(this.windowToken, 0)
-}
-
-fun View.showKeyboard() {
-    this.requestFocus()
-    val inputMethodManager = this.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    inputMethodManager.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
-}

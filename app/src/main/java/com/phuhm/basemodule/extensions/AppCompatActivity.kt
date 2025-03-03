@@ -1,6 +1,7 @@
 package com.phuhm.basemodule.extensions
 
 import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.view.View
@@ -102,21 +103,32 @@ fun AppCompatActivity.setFullScreen() {
     }
 }
 
+fun AppCompatActivity.showSoftKeyboard(view: View? = null) {
+    val currentFocus: View? = view ?: currentFocus
+    if (currentFocus != null) {
+        val inputMethodManager = getSystemService<InputMethodManager>()
+        inputMethodManager?.showSoftInput(currentFocus, 0)
+    }
+}
+
 fun AppCompatActivity.hideSoftKeyboard(view: View? = null) {
     val currentFocus: View? = view ?: currentFocus
     if (currentFocus != null) {
-        val inputMethodManager =
-            getSystemService<InputMethodManager>()
+        val inputMethodManager = getSystemService<InputMethodManager>()
         inputMethodManager?.hideSoftInputFromWindow(currentFocus.windowToken, 0)
     }
 }
 
-fun AppCompatActivity.showSoftKeyboard(view: View? = null) {
-    val currentFocus: View? = view ?: currentFocus
+fun AppCompatActivity.showKeyboard(toFocus: View) {
+    toFocus.requestFocus()
+    val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.showSoftInput(toFocus, InputMethodManager.SHOW_IMPLICIT)
+}
+
+fun AppCompatActivity.hideKeyboard() {
     if (currentFocus != null) {
-        val inputMethodManager =
-            getSystemService<InputMethodManager>()
-        inputMethodManager?.showSoftInput(currentFocus, 0)
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
     }
 }
 

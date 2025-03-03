@@ -3,6 +3,7 @@ package com.phuhm.basemodule.extensions
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.Gravity
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -11,6 +12,7 @@ fun Dialog.setupDialog(
     isFullScreen: Boolean,
     isCancelable: Boolean,
     isCancelOnTouchOutside: Boolean,
+    gravity: Int = Gravity.CENTER, // Bottom Sheet: BOTTOM
     amount: Float = 0.5f
 ) {
     this.apply {
@@ -25,6 +27,7 @@ fun Dialog.setupDialog(
             }
 
             window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            window.setGravity(gravity)
             window.setDimAmount(amount)
         }
     }

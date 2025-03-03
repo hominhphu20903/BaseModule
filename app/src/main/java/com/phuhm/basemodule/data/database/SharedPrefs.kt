@@ -25,4 +25,8 @@ class SharedPrefs(context: Context) {
             editor.putBoolean(Constants.IS_OPENED_SPLASH, value).apply()
             sharePrefs.edit().putBoolean(Constants.IS_OPENED_SPLASH, value).apply()
         }
+
+    fun clearAll() {
+        editor.clear().apply()
+    }
 }
