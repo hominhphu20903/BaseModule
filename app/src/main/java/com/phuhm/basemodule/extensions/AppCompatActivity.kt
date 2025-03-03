@@ -1,11 +1,14 @@
 package com.phuhm.basemodule.extensions
 
+import android.app.Activity
 import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -96,6 +99,24 @@ fun AppCompatActivity.setFullScreen() {
     ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { view, windowInsets ->
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
         ViewCompat.onApplyWindowInsets(view, windowInsets)
+    }
+}
+
+fun AppCompatActivity.hideSoftKeyboard(view: View? = null) {
+    val currentFocus: View? = view ?: currentFocus
+    if (currentFocus != null) {
+        val inputMethodManager =
+            getSystemService<InputMethodManager>()
+        inputMethodManager?.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+    }
+}
+
+fun AppCompatActivity.showSoftKeyboard(view: View? = null) {
+    val currentFocus: View? = view ?: currentFocus
+    if (currentFocus != null) {
+        val inputMethodManager =
+            getSystemService<InputMethodManager>()
+        inputMethodManager?.showSoftInput(currentFocus, 0)
     }
 }
 

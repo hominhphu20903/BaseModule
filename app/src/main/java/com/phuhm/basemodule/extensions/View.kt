@@ -11,14 +11,32 @@ fun View.visible() {
     visibility = View.VISIBLE
 }
 
+inline fun View.visibleIf(block: () -> Boolean) {
+    if (visibility != View.VISIBLE && block()) {
+        visibility = View.VISIBLE
+    }
+}
+
 fun View.gone() {
     if (visibility == View.GONE) return
     visibility = View.GONE
 }
 
+inline fun View.goneIf(block: () -> Boolean) {
+    if (visibility != View.GONE && block()) {
+        visibility = View.GONE
+    }
+}
+
 fun View.invisible() {
     if (visibility == View.INVISIBLE) return
     visibility = View.INVISIBLE
+}
+
+inline fun View.invisibleIf(block: () -> Boolean) {
+    if (visibility != View.INVISIBLE && block()) {
+        visibility = View.INVISIBLE
+    }
 }
 
 fun View.setBackgroundTint(color: Int) {

@@ -1,6 +1,7 @@
 package com.phuhm.basemodule.shared
 
 import android.app.Application
+import android.content.Context
 import com.phuhm.basemodule.data.database.NoteDatabase
 import com.phuhm.basemodule.data.repository.NoteRepositoryImpl
 import com.phuhm.basemodule.data.repository.QuestionRepositoryImpl
@@ -8,11 +9,8 @@ import com.phuhm.basemodule.data.repository.TodoRepositoryImpl
 
 class MyApplication : Application() {
     companion object {
-        private var instance: MyApplication? = null
-
-        fun getInstance(): MyApplication {
-            return instance ?: throw IllegalStateException("Application instance not initialized")
-        }
+        private lateinit var application: MyApplication
+        val context: Context get() = application.applicationContext
     }
 
     lateinit var todoRepositoryImpl: TodoRepositoryImpl
@@ -21,7 +19,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
+        application = this
 
         todoRepositoryImpl = TodoRepositoryImpl()
         noteRepositoryImpl = NoteRepositoryImpl(NoteDatabase.getDatabase(this).noteDao())
